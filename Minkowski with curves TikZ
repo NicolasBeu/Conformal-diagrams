@@ -1,22 +1,21 @@
-%\documentclass{article}
-%\usepackage{graphicx} % Required for inserting images
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
 
-%\title{Plot penrose}
-%\author{Nicolas Beuter}
-%\date{June 2023}
-%\usepackage{tikz}
+\title{Plot penrose}
+\author{Nicolas Beuter}
+\usepackage{tikz}
 
 
-%\usepackage{amsmath} % for \text
-%\usepackage{mathrsfs} % for \mathscr
-%\usepackage{xfp} % higher precision (16 digits?)
-%\usepackage[outline]{contour} % glow around text
-%\usetikzlibrary{decorations.markings,decorations.pathmorphing}
-%\usetikzlibrary{angles,quotes} % for pic (angle labels)
-%\usetikzlibrary{arrows.meta} % for arrow size
-%\usetikzlibrary{positioning,arrows}
-%\contourlength{1.4pt}
-%\begin{document}
+\usepackage{amsmath} % for \text
+\usepackage{mathrsfs} % for \mathscr
+\usepackage{xfp} % higher precision (16 digits?)
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usetikzlibrary{positioning,arrows}
+\contourlength{1.4pt}
+\begin{document}
 
 
 \begin{tikzpicture}  
@@ -71,4 +70,4 @@
 
 
 \end{tikzpicture}
-%\end{document}
+\end{document}
