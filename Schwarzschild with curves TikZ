@@ -3,7 +3,6 @@
 
 \title{Plot penrose}
 \author{Nicolas Beuter}
-\date{June 2023}
 \usepackage{tikz}
 
 
