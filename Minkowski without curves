@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Plot penrose}
+\author{Nicolas Beuter}
+
+\usepackage{tikz}
+
+
+\usepackage{amsmath} % for \text
+\usepackage{mathrsfs} % for \mathscr
+\usepackage{xfp} % higher precision (16 digits?)
+\usepackage[outline]{contour} % glow around text
+\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+\usetikzlibrary{angles,quotes} % for pic (angle labels)
+\usetikzlibrary{arrows.meta} % for arrow size
+\usetikzlibrary{positioning,arrows}
+\contourlength{1.4pt}
+\begin{document}
+
+
+\begin{tikzpicture}  
+
+\draw (0,-4) 
+             node [below,left]{$-\frac{\pi}{2}$}
+             node [below,right]{$i^-$} --    
+     (0,4)   node [above,right]{$i^+$}
+             node  [above,left] {$\frac{\pi}{2}$} --
+             node [midway, above right] {$\cal{J}^+$}
+             node [midway, below,sloped]{$V=T+R=\frac{\pi}{2}$}
+    (4,0) node [above]{$i^0$}
+          node [below] {$\frac{\pi}{2}$} --
+             node [midway, below right] {$\cal{J}^-$}
+             node [midway, above,sloped]{$U=T-R=-\frac{\pi}{2}$}
+    (0,-4)
+    -- cycle;
+\node[rotate=90] at (-0.2,-1) {$r=0$};
+\node [rotate=90] at (0.2,-2) {$R=0$};
+\node [rotate=90] at (0.2, 2) {U=V};
+\draw[->] (0,0) -- (5,0) node[right]{R};
+\draw[->] (0,-5) -- (0,5) node[left]{T};
+\draw[->] (0,0) -- (1,1) node[below]{V};
+\draw[->] (0,0) -- (-1,1) node[below]{U};
+
+
+
+
+
+
+\end{tikzpicture}
+\end{document}
