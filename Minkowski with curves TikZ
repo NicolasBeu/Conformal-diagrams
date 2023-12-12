@@ -1,0 +1,74 @@
+%\documentclass{article}
+%\usepackage{graphicx} % Required for inserting images
+
+%\title{Plot penrose}
+%\author{Nicolas Beuter}
+%\date{June 2023}
+%\usepackage{tikz}
+
+
+%\usepackage{amsmath} % for \text
+%\usepackage{mathrsfs} % for \mathscr
+%\usepackage{xfp} % higher precision (16 digits?)
+%\usepackage[outline]{contour} % glow around text
+%\usetikzlibrary{decorations.markings,decorations.pathmorphing}
+%\usetikzlibrary{angles,quotes} % for pic (angle labels)
+%\usetikzlibrary{arrows.meta} % for arrow size
+%\usetikzlibrary{positioning,arrows}
+%\contourlength{1.4pt}
+%\begin{document}
+
+
+\begin{tikzpicture}  
+
+\draw (0,-4) 
+      node [right]{$i^-$} --         
+     (0,4) node [right]{$i^+$} --
+             node [midway, above right] {$\cal{J}^+$}
+    (4,0) node [below]{$i^0$} --
+             node [midway, below right] {$\cal{J}^-$}
+    (0,-4)
+    -- cycle;
+\node[rotate=90] at (-0.2,-0.1) {$r=0$};
+\draw[->] (4,0) -- (5,0) node[right]{$R$};
+\draw[->] (0,4) -- (0,5) node[above]{$T$};
+
+
+%Konforme Koordinaten
+
+\tikzset{declare function={
+    T(\t,\r)  = \fpeval{4/pi*(atan(\t+\r) + atan(\t-\r))};
+    R(\t,\r)  = \fpeval{4/pi*(atan(\t+\r) - atan(\t-\r))};
+}}
+
+
+\newcommand\samp[1]{tan(90*#1) } % for equidistant sampling 
+\def\Nlines{6} % total number of lines is 2\Nlines+1
+
+\foreach \i [evaluate={\t=\i/(\Nlines+1);}] in {-\Nlines,...,\Nlines}{
+    \message{Drawing i=\i...^^J}
+    \draw[color=blue,line width=0.3,samples=30,smooth,variable=\r,domain=0.001:1]
+   plot({ R(\samp{\t},\samp{\r}) },{ T(\samp{\t},\samp{\r}) });
+}
+
+\def\Nlines{6}
+
+\foreach \i [evaluate={\r=\i/(\Nlines+1);}] in {1,...,\Nlines}{
+    \message{Drawing i=\i...^^J}
+    \draw[color=red,line width=0.3,samples=30,smooth,variable=\t,domain=0.001:1]
+    plot({ R(\samp{\t},\samp{\r}) },{ T(\samp{\t},\samp{\r}) });
+}
+
+\def\Nlines{6} % total number of lines is 2\Nlines+1
+
+\foreach \i [evaluate={\r=\i/(\Nlines+1);}] in {1,...,\Nlines}{
+    \message{Drawing i=\i...^^J}
+    \draw[color=red,line width=0.3,samples=30,smooth,variable=\t,domain=-0.99:-0.01]
+    plot({ R(\samp{\t},\samp{\r}) },{ T(\samp{\t},\samp{\r}) });
+}
+
+\node[draw,align=left] at (3.5,3.5) {\textcolor{red}{r constant}\\ \textcolor{blue}{t constant}};
+
+
+\end{tikzpicture}
+%\end{document}
